@@ -1,0 +1,74 @@
+
+$orange: #ffa600;
+$grey:#f3f3f3;
+$white: #fff;
+$greenHue : #7EAA92;// #739072;// rgba(43,177,99,0.6583099792651436);
+$base-color:$grey ;
+
+@mixin gradient {
+ // background: linear-gradient(90deg, rgba(2,0,36,1) 5%, rgba(9,121,56,0.7287115529805672) 100%); //, rgba(0,212,255,1) 100%
+ background: linear-gradient(150deg, rgba(2,0,36,1) 0%, rgba(43,177,99,0.6583099792651436) 100%);
+}
+
+@mixin transition {
+  transition: all .5s ease-in-out;
+}
+
+@mixin corner($radius) {
+  border-radius: $radius;
+}
+
+
+body {
+  //background-color: $base-color;
+  @include gradient();
+  font-family: 'Montserrat','Inter','Helvetica', 'Arial',  sans-serif;
+  height: 100vh;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40em;
+  margin:5em auto;
+  padding: 2em 0;
+  color: $white;
+ // text-align: center;
+//  border: $grey 1px solid;
+// @include corner(20%)
+ 
+}
+
+
+button {
+  @include  corner(.3em);
+  background: $greenHue;
+  color: $white;
+  border: 1px solid $white;
+  width: 10em;
+  padding:18px 10px;
+  margin: 1em .5em;
+  font-size: 1em;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    @include transition;
+    background: $white;
+    color:$greenHue;
+  }
+}
+
+.timerClass {
+  padding: 3em;
+ border: $grey 1px solid;
+ @include corner(50%)
+ 
+}
+
+#seconds,#tens {
+  font-size: 1.5em;
+}
+
